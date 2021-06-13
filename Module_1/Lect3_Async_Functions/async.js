@@ -8,3 +8,5 @@ function cb(error ,data){
     console.log(data + " ");
 }
 console.log("end");
+
+// On stack async function does not called......
