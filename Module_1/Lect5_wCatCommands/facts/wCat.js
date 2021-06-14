@@ -1,5 +1,4 @@
 console.log("Hey i am from wCat");
-const { FORMERR } = require("dns");
 let fs =require("fs");
 /*
 console.log(process); // this is use to find all the commands inside process object inside argv in the form of arrays...
@@ -216,7 +215,7 @@ function applyBFlag(){
 
     let bFlagedData =dataComp.join("\r\n");
     console.log(bFlagedData);
-    
+
     /* Output :
     1.Hey I am F1
     
