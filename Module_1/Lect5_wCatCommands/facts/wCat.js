@@ -203,6 +203,38 @@ applyNFlag();
 
 // *** -b Flag ***
 
+function applyBFlag(){
+    let count =1;
+    let dataComp =data.split("\r\n");
+
+    for(let i=0; i<dataComp.length;i++){
+        if(dataComp[i]!=''){
+            dataComp[i] = `${count}.${dataComp[i]}` // String Interpolation...
+            count ++;
+        }
+    }
+
+    let bFlagedData =dataComp.join("\r\n");
+    console.log(bFlagedData);
+    
+    /* Output :
+    1.Hey I am F1
+    
+    
+    
+    
+    2.Bye I am F1
+    3.Hey I am F2
+    
+    
+    
+    
+    4.Bye I am F2
+    */
+}
+
+applyBFlag();
+
 
 
 
