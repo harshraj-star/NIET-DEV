@@ -75,17 +75,23 @@ Hey I am F2
 Bye I am F2
 */
 
+
+/*
 function applySFlags(){
     let dataComp =data.split("\r\n");
-    /*
+    
     console.log(dataComp);
 
     Output :
     [ 'Hey I am F1', '', '', 'Bye I am F1' ]
     */
 
+
+
+// *** -s Flag ***
 // Now We Have to remove Empty Spaces '' from the above array contents and just a single space between line 1(Hey I am F1) and line 2{Bye I am F1) ....
 
+/*
     let sFlagedData =[];
     let emptyPushed =false;
     for(let i=0 ; i< dataComp.length; i++){
@@ -102,16 +108,103 @@ function applySFlags(){
     }
     /* 
     console.log(sFlagedData);
-    
+
     Output :
     [ 'Hey I am F1', '', 'Bye I am F1' ]
-    */
+    
 
     let sFlagedString =sFlagedData.join("\r\n");
     console.log(sFlagedString);
+
+    Output :
+    Hey I am F1
+
+    Bye I am F1
+    Hey I am F2
+    Bye I am F2
     
 }
 applySFlags();
+
+*/
+
+
+// Now It may possible that their may be spaces before the content and between the content So we also have to solve those edge Cases....
+
+function applySFlags(){
+    let dataComp =data.split("\r\n");
+    
+    // console.log(dataComp);
+
+    let sFlagedData =[];
+    let nonEmptyFound =false;
+    for(let i=0 ; i< dataComp.length; i++){
+        if(dataComp[i]!=''){
+            sFlagedData.push(dataComp[i]);
+            nonEmptyFound =true;
+
+        }
+        else if(dataComp[i] =='' && dataComp[i-1]!='' && nonEmptyFound){
+            sFlagedData.push(dataComp[i]);
+        }
+    }
+    
+    // console.log(sFlagedData);
+
+    let sFlagedString =sFlagedData.join("\r\n");
+    console.log(sFlagedString);
+
+    /* Output :
+    Hey I am F1
+
+    Bye I am F1
+    Hey I am F2
+
+    Bye I am F2
+    */
+    
+}
+applySFlags();
+
+
+
+// *** -n Flag ***
+
+function applyNFlag(){
+    let dataComp = data.split("\r\n");
+    let count =1;
+    for(let i =0; i<dataComp.length; i++){
+        dataComp[i] =count +"." + dataComp[i];
+        count++;
+    }
+
+    //console.log(dataComps);
+
+    let nFlagedData =dataComp.join("\r\n");
+    console.log(nFlagedData);
+
+    /* Output :
+    1.Hey I am F1
+    2.
+    3.
+    4.
+    5.
+    6.Bye I am F1
+    7.Hey I am F2
+    8.
+    9.
+    10.
+    11.
+    12.Bye I am F2
+    */
+}
+applyNFlag();
+
+
+// *** -b Flag ***
+
+
+
 
 
 
